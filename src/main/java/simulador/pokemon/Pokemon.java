@@ -11,13 +11,15 @@ public class Pokemon {
     private int salud;
     private int ataque;
     private TipoPokemon  tipo;
+    private  String estado;
     //constructor de los atributos
     
-    public Pokemon(String nombre, int salud, int ataque, TipoPokemon tipo) {
+    public Pokemon(String nombre, int salud, int ataque, TipoPokemon tipo, String estado) {
         this.nombre = nombre;
         this.salud = salud;
         this.ataque = ataque;
         this.tipo = tipo;
+        this.estado = estado;
     }
     //getter de los atributos
     public String getNombre() {
@@ -34,6 +36,10 @@ public class Pokemon {
 
     public TipoPokemon getTipo() {
         return tipo;
+    }
+
+    public String getEstado() {
+        return estado;
     }
     
     //setter de los atributos
@@ -52,6 +58,24 @@ public class Pokemon {
     public void setTipo(TipoPokemon tipo) {
         this.tipo = tipo;
     }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public  double atacar(Pokemon oponente) {
+        if (this.tipo == TipoPokemon.FUEGO && oponente.getTipo() == TipoPokemon.AGUA && oponente.getTipo() == TipoPokemon.ROCA && oponente.getTipo() == TipoPokemon.ACERO) {
+            return 0.5;
+        } else if (this.tipo == TipoPokemon.FUEGO  == TipoPokemon.PLANTA == TipoPokemon.BICHO  == TipoPokemon.HIELO) {
+            return 2;
+        } 
+                if (this.tipo == TipoPokemon.AGUA && oponente.getTipo() == TipoPokemon.PLANTA) {
+                    return 0.5;
+                }else if (this.tipo == TipoPokemon.AGUA  == TipoPokemon.FUEGO == TipoPokemon.ROCA)
+                    return 2;
+
+)
+
     
-    
-}
+
+

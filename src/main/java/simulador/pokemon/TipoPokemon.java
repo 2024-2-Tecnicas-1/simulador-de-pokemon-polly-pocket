@@ -6,7 +6,7 @@ package simulador.pokemon;
  * @author
  * @author
  */
-public enum TipoPokemon {
+public enum TipoPokemon {//cada uno de los tipo pokemon especificados en el documento, enumerados a continuación
     FUEGO,
     AGUA,
     PLANTA,
@@ -23,7 +23,7 @@ public enum TipoPokemon {
     BICHO,
     HIELO,
     FANTASMA;
-
+//aquí se especifican fortalezas y debilidades de cada tipo de pokemon 
     public double factorMultiplicador(TipoPokemon atacante, TipoPokemon defensor) {
         switch (atacante) {
             case FUEGO:

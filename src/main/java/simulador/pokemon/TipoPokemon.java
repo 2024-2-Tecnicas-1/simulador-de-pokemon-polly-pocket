@@ -3,7 +3,7 @@ package simulador.pokemon;
 /**
  *
  * @author dfpar
- * @author
+ * @author Ksrenn
  * @author
  */
 public enum TipoPokemon {//cada uno de los tipo pokemon especificados en el documento, enumerados a continuación

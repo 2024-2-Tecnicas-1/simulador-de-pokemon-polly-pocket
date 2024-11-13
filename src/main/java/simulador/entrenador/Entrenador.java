@@ -1,4 +1,10 @@
 package simulador.entrenador;
+/**
+ *
+ * @author dfpar
+ * @author Ksrenn
+ * @author 
+ */
 
 import java.util.List;
 

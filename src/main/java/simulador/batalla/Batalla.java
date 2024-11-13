@@ -2,7 +2,7 @@ package simulador.batalla;
 /**
  *
  * @author dfpar
- * @author 
+ * @author Ksrenn
  * @author 
  */
 public class Batalla {

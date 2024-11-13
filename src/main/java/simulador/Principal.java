@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  *
  * @author dfpar
- * @author
+ * @author Ksrenn
  * @author
  */
 public class Principal {

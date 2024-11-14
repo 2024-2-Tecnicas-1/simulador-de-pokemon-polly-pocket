@@ -70,4 +70,8 @@ public abstract class Pokemon {
             System.out.println("murio"); 
         }
     }
+    public  void entrenar(){
+        this.ataque += 4;
+        this.salud  +=1;
+    }
 }

@@ -1,24 +1,18 @@
 package simulador.entrenador;
-/**
- *
- * @author dfpar
- * @author Ksrenn
- * @author 
- */
-
+import java.util.ArrayList;
 import java.util.List;
 
 public class Entrenador {
 
-    private String nombre;
+    public String nombre;
     private List<Pokemon> pokemones;
 
     //Constructor
-    public Entrenador(String nombre, List<Pokemon> pokemones) {
+    public Entrenador(String nombre) {
         this.nombre = nombre;
-        this.pokemones = pokemones;
-    }
-
+        this.pokemones = new ArrayList<>();
+  }
+    
     //Obtener nombre del entrenador
     public String getNombre() {
         return nombre;

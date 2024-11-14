@@ -12,6 +12,7 @@ public abstract class Pokemon {
     private int ataque;
     private TipoPokemon  tipo;
     private  String estado;
+   
     //constructor de los atributos
     
     public Pokemon(String nombre, int salud, int ataque, TipoPokemon tipo, String estado) {
@@ -62,16 +63,18 @@ public abstract class Pokemon {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public abstract void ataca(Pokemon oponente);
-       
-    public void Dano(int dano ){
+
+    public void ataca(Pokemon oponente) {
+   System.out.println(this.nombre + " está atacando " + this.tipo);    }
+
+    public void Dano(int dano) {
         this.salud -= dano;
-        if(salud <= 0){
+        if (salud <= 0) {
             System.out.println("murio"); 
         }
     }
     public  void entrenar(){
-        this.ataque += 4;
-        this.salud  +=1;
-    }
+        this.ataque += 2;
+        this.salud  +=4;
+    }   
 }

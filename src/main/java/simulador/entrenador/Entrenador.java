@@ -1,6 +1,7 @@
 package simulador.entrenador;
 import java.util.ArrayList;
 import java.util.List;
+import simulador.pokemon.Pokemon;
 /**
  *
  * @author dfpar

@@ -5,7 +5,7 @@ package simulador.pokemon;
  * @author Ksrenn
  * @author 
  */
-public class Pokemon {
+public abstract class Pokemon {
     //atributos de los pokemon
     private String nombre;
     private int salud;
@@ -62,20 +62,12 @@ public class Pokemon {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public  double atacar(Pokemon oponente) {
-        if (this.tipo == TipoPokemon.FUEGO && oponente.getTipo() == TipoPokemon.AGUA && oponente.getTipo() == TipoPokemon.ROCA && oponente.getTipo() == TipoPokemon.ACERO) {
-            return 0.5;
-        } else if (this.tipo == TipoPokemon.FUEGO  == TipoPokemon.PLANTA == TipoPokemon.BICHO  == TipoPokemon.HIELO) {
-            return 2;
-        } 
-                if (this.tipo == TipoPokemon.AGUA && oponente.getTipo() == TipoPokemon.PLANTA) {
-                    return 0.5;
-                }else if (this.tipo == TipoPokemon.AGUA  == TipoPokemon.FUEGO == TipoPokemon.ROCA)
-                    return 2;
-
-)
-
-    
-
-
+    public abstract void ataca(Pokemon oponente);
+       
+    public void Dano(int dano ){
+        this.salud -= dano;
+        if(salud <= 0){
+            System.out.println("murio"); 
+        }
+    }
+}

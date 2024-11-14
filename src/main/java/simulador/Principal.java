@@ -14,7 +14,6 @@ import simulador.pokemon.TipoPokemon;
  * @author Laufranco
  */
 public class Principal {
-
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -58,6 +57,7 @@ public class Principal {
                     gestionarEntrenadores.gestionarEntrenadores(scan);
                     break;
                 case 2:
+                    gestionarPokemon.gestionarPokemon(scan);
                     break;
                 case 3:
                     break;

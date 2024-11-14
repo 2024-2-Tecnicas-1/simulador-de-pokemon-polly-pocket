@@ -4,7 +4,7 @@ import simulador.entrenador.Entrenador;
 import java.util.*;
 
 public class gestionarEntrenadores {
-    private List<Entrenador> entrenadores;
+    private static List<Entrenador> entrenadores;
     
     //Constructor para iniciar la lista
     
@@ -13,7 +13,7 @@ public class gestionarEntrenadores {
     }
     
     //Metodo para registrar un nuevo entrenador 
-    public void registrarEntrenador(Scanner scanner) {
+    public static void registrarEntrenador(Scanner scanner) {
         scanner.nextLine(); // Consumir el salto de línea pendiente
         System.out.print("Ingrese el nombre del entrenador: ");
         String nombre = scanner.nextLine();
@@ -23,7 +23,7 @@ public class gestionarEntrenadores {
     }
     
     //Metodo ver lista de los entrenadores
-    public void verListaEntrenadores() {
+    public static void verListaEntrenadores() {
         if (entrenadores.size()==0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
         } else {
@@ -35,7 +35,7 @@ public class gestionarEntrenadores {
         }
     }
 
-    public void seleccionarEntrenador(Scanner scanner) {
+    public static void seleccionarEntrenador(Scanner scanner) {
         if (entrenadores.size()== 0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
             return;

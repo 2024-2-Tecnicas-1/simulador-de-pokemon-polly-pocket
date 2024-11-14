@@ -66,10 +66,12 @@ public abstract class Pokemon {
     }
 // metodos solicitados
     // metodo de ataque 
-    public  void ataca(Pokemon oponente){
-     double factorMultiplicador = 
-            
-        
+    public  void ataca(Pokemon oponente){            
+      int dano =oponente.getAtaque()-oponente.getSalud();
+      if (dano<0){
+          dano =0;
+      }
+      oponente.Dano(dano);
     }
         //metodo de daño
     public void Dano(int dano) {

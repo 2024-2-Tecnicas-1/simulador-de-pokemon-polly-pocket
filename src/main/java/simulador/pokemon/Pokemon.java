@@ -56,7 +56,7 @@ public abstract class Pokemon {
     public void setAtaque(int ataque) {
         this.ataque = ataque;
     }
-
+// metodos solicitados 
     public void setTipo(TipoPokemon tipo) {
         this.tipo = tipo;
     }
@@ -64,16 +64,21 @@ public abstract class Pokemon {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    public void ataca(Pokemon oponente) {
-   System.out.println(this.nombre + " está atacando " + this.tipo);    }
-
+// metodos solicitados
+    // metodo de ataque 
+    public  void ataca(Pokemon oponente){
+     double factorMultiplicador = 
+            
+        
+    }
+        //metodo de daño
     public void Dano(int dano) {
         this.salud -= dano;
-        if (salud <= 0) {
+        if (salud == 0) {
             System.out.println("murio"); 
         }
     }
+    // metodo de entrenar
     public  void entrenar(){
         this.ataque += 2;
         this.salud  +=4;

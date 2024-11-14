@@ -67,7 +67,7 @@ public abstract class Pokemon {
 // metodos solicitados
     // metodo de ataque 
     public  void ataca(Pokemon oponente){
-        
+     double factorMultiplicador = 
             
         
     }

@@ -5,6 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 import simulador.entrenador.Entrenador;
 
+/**
+ *
+ * @author dfpar
+ * @author Ksrenn
+ * @author Laufranco
+ */
+
 public class Principal {
 
     public static void main(String[] args) {

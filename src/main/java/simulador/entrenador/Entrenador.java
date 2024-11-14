@@ -1,6 +1,12 @@
 package simulador.entrenador;
 import java.util.ArrayList;
 import java.util.List;
+/**
+ *
+ * @author dfpar
+ * @author Ksrenn
+ * @author Laufranco
+ */
 
 public class Entrenador {
 

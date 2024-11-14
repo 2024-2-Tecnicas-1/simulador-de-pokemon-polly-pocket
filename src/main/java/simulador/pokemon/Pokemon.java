@@ -3,7 +3,7 @@ package simulador.pokemon;
  *
  * @author dfpar
  * @author Ksrenn
- * @author 
+ * @author Laufranco
  */
 public abstract class Pokemon {
     //atributos de los pokemon
@@ -44,6 +44,7 @@ public abstract class Pokemon {
     }
     
     //setter de los atributos
+    
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

@@ -43,7 +43,7 @@ public class Principal {
         Pokemon tentacool = new Pokemon("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal") {
         };
 
-        int opcion = scan.nextInt();
+        int opcion;
         do {
             System.out.println("--- Menú ---");
             System.out.println("1. Gestionar Entrenadores");

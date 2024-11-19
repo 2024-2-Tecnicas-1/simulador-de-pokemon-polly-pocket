@@ -4,8 +4,15 @@ import simulador.entrenador.Entrenador;
 import java.util.*;
 
 public class gestionarEntrenadores {
-    static List<Entrenador> entrenadores = new ArrayList<>();
-
+    private static List<Entrenador> entrenadores;
+    
+    //Constructor para iniciar la lista
+    
+    public gestionarEntrenadores(){
+        entrenadores =new ArrayList<>();
+    }
+    
+    //Metodo para registrar un nuevo entrenador 
     public static void registrarEntrenador(Scanner scanner) {
         scanner.nextLine(); // Consumir el salto de línea pendiente
         System.out.print("Ingrese el nombre del entrenador: ");
@@ -14,20 +21,22 @@ public class gestionarEntrenadores {
         entrenadores.add(nuevoEntrenador);
         System.out.println("Entrenador " + nombre + " registrado.");
     }
-
+    
+    //Metodo ver lista de los entrenadores
     public static void verListaEntrenadores() {
-        if (entrenadores.isEmpty()) {
+        if (entrenadores.size()==0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
         } else {
             System.out.println("Entrenadores registrados:");
-            for (Entrenador entrenador : entrenadores) {
-                System.out.println(entrenador.nombre);
+            for (int i=0; i<entrenadores.size();i++) {
+                Entrenador entrenador = entrenadores.get(i);//Obteniendo el entrenador en la posición
+                System.out.println(entrenador.getNombre());//Imprime el nombre del entrenador
             }
         }
     }
 
     public static void seleccionarEntrenador(Scanner scanner) {
-        if (entrenadores.isEmpty()) {
+        if (entrenadores.size()== 0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
             return;
         }
@@ -37,14 +46,14 @@ public class gestionarEntrenadores {
             System.out.println((i + 1) + ". " + entrenadores.get(i).nombre);
         }
         System.out.print("Elige un entrenador (número): ");
-        int opcion = scanner.nextInt() - 1;
-        Entrenador entrenadorSeleccionado = entrenadores.get(opcion);
+        int opcion = scanner.nextInt() - 1;// Se resta 1 pues as litas comienzan desde 0
+        Entrenador entrenadorSeleccionado = entrenadores.get(opcion);//muestra el entrenador seleccionado en la opcion anterior
 
         // Mostrar el nombre del entrenador seleccionado
         System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.nombre);
     }
-
-    public static void gestionarEntrenadores(Scanner scanner) {
+    //METODO PUBLIC VOID IMPRIME ALGO NO DEVUELVE NINGUN DATO
+    public void gestionarEntrenadores(Scanner scanner) {
         int opcionSubMenu;
 
         do {
@@ -59,6 +68,7 @@ public class gestionarEntrenadores {
             switch (opcionSubMenu) {
                 case 1:
                     registrarEntrenador(scanner); // Llamada al método de registrar
+                    //Lleva el scanner ya que necesita leer respuestas del usuario, necesita leer información que da el usuario.
                     break;
                 case 2:
                     verListaEntrenadores(); // Llamada al método de ver lista

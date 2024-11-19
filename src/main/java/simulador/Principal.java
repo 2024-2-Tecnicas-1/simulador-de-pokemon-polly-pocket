@@ -32,7 +32,7 @@ public class Principal {
         Pokemon diglett = new Pokemon("Diglett", 10, 55, TipoPokemon.TIERRA, "Normal") {
         };
         //Aparece que es (Hielo/Volador) preguntar como hacerlo
-        
+
         Pokemon articuno = new Pokemon("Articuno", 90, 85, TipoPokemon.HIELO, "Normal") {
         };
         Pokemon snorlax = new Pokemon("Snorlax", 160, 110, TipoPokemon.NORMAL, "Normal") {
@@ -42,7 +42,7 @@ public class Principal {
         //Aparece que es (Agua/Veneno) preguntar como hacerlo
         Pokemon tentacool = new Pokemon("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal") {
         };
-        
+
         int opcion = scan.nextInt();
         do {
             System.out.println("--- Menú ---");
@@ -55,9 +55,12 @@ public class Principal {
             scan.nextLine();
             switch (opcion) {
                 case 1:
-                    gestionarEntrenadores.gestionarEntrenadores(scan);
+                    gestionarEntrenadores gestor = new gestionarEntrenadores();
+                    gestor.gestionarEntrenadores(scan);
                     break;
                 case 2:
+                    gestionarPokemon gestorPokemon = new gestionarPokemon();
+                    gestorPokemon.gestionarPokemon(scan);
                     break;
                 case 3:
                     break;

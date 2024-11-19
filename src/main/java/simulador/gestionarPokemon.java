@@ -4,7 +4,8 @@ import simulador.pokemon.Pokemon;
 import java.util.*;
 
 public class gestionarPokemon {
-    private List<Pokemon> pokemones;  
+    private static List<Pokemon> pokemones;  
+    private static Pokemon pokemonSeleccionado;
 
     // Constructor para iniciar la lista de Pokémon
     public gestionarPokemon() {
@@ -12,7 +13,7 @@ public class gestionarPokemon {
     }
 
     // Método para registrar un nuevo Pokémon
-    public void registrarPokemon(Scanner scanner) {
+    public static void registrarPokemon(Scanner scanner) {
         scanner.nextLine(); // Consumir el salto de línea pendiente
         System.out.print("Ingrese el nombre del Pokémon: ");
         String nombre = scanner.nextLine();
@@ -22,7 +23,7 @@ public class gestionarPokemon {
     }
 
     // Método para ver la lista de Pokémones
-    public void verListaPokemones() {
+    public static void verListaPokemones() {
         if (pokemones.size() == 0) {
             System.out.println("No hay Pokémones registrados.");
         } else {
@@ -35,7 +36,7 @@ public class gestionarPokemon {
     }
 
     // Método para seleccionar un Pokémon de la lista
-    public void seleccionarPokemon(Scanner scanner) {
+    public static void seleccionarPokemon(Scanner scanner) {
         if (pokemones.size() == 0) {
             System.out.println("No hay Pokémones registrados.");
             return;
@@ -52,9 +53,13 @@ public class gestionarPokemon {
         // Mostrar el nombre del Pokémon seleccionado
         System.out.println("Pokémon seleccionado: " + pokemonSeleccionado.getNombre());
     }
-
+        // Método para obtener el Pokémon seleccionado
+    public static Pokemon getPokemonSeleccionado() {
+        return pokemonSeleccionado;
+    }
+  
     // Método público void para gestionar Pokémones
-    public void gestionarPokemones(Scanner scanner) {
+    public static void gestionarPokemon(Scanner scanner) {
         int opcionSubMenu;
 
         do {

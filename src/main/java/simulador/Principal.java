@@ -3,6 +3,7 @@ package simulador;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import simulador.batalla.Batalla;
 import simulador.entrenador.Entrenador;
 import simulador.pokemon.Pokemon;
 import simulador.pokemon.TipoPokemon;
@@ -32,7 +33,6 @@ public class Principal {
         Pokemon diglett = new Pokemon("Diglett", 10, 55, TipoPokemon.TIERRA, "Normal") {
         };
         //Aparece que es (Hielo/Volador) preguntar como hacerlo
-
         Pokemon articuno = new Pokemon("Articuno", 90, 85, TipoPokemon.HIELO, "Normal") {
         };
         Pokemon snorlax = new Pokemon("Snorlax", 160, 110, TipoPokemon.NORMAL, "Normal") {
@@ -43,7 +43,7 @@ public class Principal {
         Pokemon tentacool = new Pokemon("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal") {
         };
 
-        int opcion = scan.nextInt();
+        int opcion;
         do {
             System.out.println("--- Menú ---");
             System.out.println("1. Gestionar Entrenadores");
@@ -51,8 +51,10 @@ public class Principal {
             System.out.println("3. Iniciar Batalla");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
+            
+            opcion = scan.nextInt();
+            scan.nextLine(); 
 
-            scan.nextLine();
             switch (opcion) {
                 case 1:
                     gestionarEntrenadores gestor = new gestionarEntrenadores();
@@ -63,6 +65,9 @@ public class Principal {
                     gestorPokemon.gestionarPokemon(scan);
                     break;
                 case 3:
+                    System.out.println("Iniciando la batalla...");
+                    Batalla batalla = new Batalla();
+                    batalla.gestionarBatalla();
                     break;
                 case 4:
                     System.out.println("Saliendo del Juego...");

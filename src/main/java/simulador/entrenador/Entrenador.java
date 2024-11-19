@@ -5,7 +5,7 @@ import simulador.pokemon.Pokemon;
 /**
  *
  * @author dfpar
- * @author Ksrenn
+// * @author Ksrenn
  * @author Laufranco
  */
 

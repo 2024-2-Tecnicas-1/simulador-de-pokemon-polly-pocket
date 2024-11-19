@@ -4,14 +4,19 @@ import simulador.entrenador.Entrenador;
 import java.util.*;
 
 public class gestionarEntrenadores {
+
     private static List<Entrenador> entrenadores;
-    
+    private static Entrenador entrenadorSeleccionado;
+
     //Constructor para iniciar la lista
-    
-    public gestionarEntrenadores(){
-        entrenadores =new ArrayList<>();
+    public gestionarEntrenadores() {
+        entrenadores = new ArrayList<>();
     }
-    
+
+    public static List<Entrenador> getEntrenadores() {
+        return entrenadores;
+    }
+
     //Metodo para registrar un nuevo entrenador 
     public static void registrarEntrenador(Scanner scanner) {
         scanner.nextLine(); // Consumir el salto de línea pendiente
@@ -21,14 +26,14 @@ public class gestionarEntrenadores {
         entrenadores.add(nuevoEntrenador);
         System.out.println("Entrenador " + nombre + " registrado.");
     }
-    
+
     //Metodo ver lista de los entrenadores
     public static void verListaEntrenadores() {
-        if (entrenadores.size()==0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
+        if (entrenadores.size() == 0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
         } else {
             System.out.println("Entrenadores registrados:");
-            for (int i=0; i<entrenadores.size();i++) {
+            for (int i = 0; i < entrenadores.size(); i++) {
                 Entrenador entrenador = entrenadores.get(i);//Obteniendo el entrenador en la posición
                 System.out.println(entrenador.getNombre());//Imprime el nombre del entrenador
             }
@@ -36,7 +41,7 @@ public class gestionarEntrenadores {
     }
 
     public static void seleccionarEntrenador(Scanner scanner) {
-        if (entrenadores.size()== 0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
+        if (entrenadores.size() == 0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
             return;
         }
@@ -48,12 +53,16 @@ public class gestionarEntrenadores {
         System.out.print("Elige un entrenador (número): ");
         int opcion = scanner.nextInt() - 1;// Se resta 1 pues as litas comienzan desde 0
         Entrenador entrenadorSeleccionado = entrenadores.get(opcion);//muestra el entrenador seleccionado en la opcion anterior
-
         // Mostrar el nombre del entrenador seleccionado
         System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.nombre);
     }
+    // Método para obtener el entrenador seleccionado
+    public static Entrenador getEntrenadorSeleccionado() {
+        return entrenadorSeleccionado;
+    }
+
     //METODO PUBLIC VOID IMPRIME ALGO NO DEVUELVE NINGUN DATO
-    public void gestionarEntrenadores(Scanner scanner) {
+    public static void gestionarEntrenadores(Scanner scanner) {
         int opcionSubMenu;
 
         do {

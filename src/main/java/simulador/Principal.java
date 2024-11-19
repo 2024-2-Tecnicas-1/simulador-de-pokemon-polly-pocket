@@ -43,7 +43,7 @@ public class Principal {
         Pokemon tentacool = new Pokemon("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal") {
         };
 
-        int opcion;
+        int opcion = scan.nextInt();
         do {
             System.out.println("--- Menú ---");
             System.out.println("1. Gestionar Entrenadores");
@@ -55,6 +55,7 @@ public class Principal {
             opcion = scan.nextInt();
             scan.nextLine(); 
 
+            scan.nextInt();
             switch (opcion) {
                 case 1:
                     gestionarEntrenadores gestor = new gestionarEntrenadores();
@@ -73,6 +74,7 @@ public class Principal {
                     System.out.println("Saliendo del Juego...");
 
             }
+            
         } while (opcion != 4);
     }
 }

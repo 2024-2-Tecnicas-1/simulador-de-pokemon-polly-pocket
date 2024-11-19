@@ -67,20 +67,20 @@ public abstract class Pokemon {
 // metodos solicitados
     // metodo de ataque 
     public  void ataca(Pokemon oponente){
-     double factorMultiplicador = 
-            
-        
+            double multiplicador = this.tipo.factorMultiplicador(this.tipo, oponente.getTipo());
+
     }
-        //metodo de daño
+
     public void Dano(int dano) {
         this.salud -= dano;
-        if (salud == 0) {
-            System.out.println("murio"); 
+        if (salud <= 0) {
+            System.out.println("murio");
         }
     }
+
     // metodo de entrenar
-    public  void entrenar(){
+    public void entrenar() {
         this.ataque += 2;
-        this.salud  +=4;
-    }   
+        this.salud += 4;
+    }
 }

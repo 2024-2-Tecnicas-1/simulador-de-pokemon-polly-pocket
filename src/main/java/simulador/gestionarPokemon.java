@@ -1,16 +1,31 @@
 package simulador;
 
-import simulador.pokemon.Pokemon;  
+import simulador.pokemon.Pokemon;
 import java.util.*;
+import simulador.pokemon.TipoPokemon;
 
 public class gestionarPokemon {
-    private static List<Pokemon> pokemones;  
+
+    private static List<Pokemon> pokemones;
     private static Pokemon pokemonSeleccionado;
 
     // Constructor para iniciar la lista de Pokémon
     public gestionarPokemon() {
-        pokemones = new ArrayList<>();
+ pokemones = new ArrayList<>();
+
+        // Inicialización de los Pokémon predefinidos con sus respectivas subclases
+        pokemones.add(new Charmander("Charmander", 39, 52, TipoPokemon.FUEGO, "Normal"));
+        pokemones.add(new Shellder("Shellder", 30, 65, TipoPokemon.AGUA, "Normal"));
+        pokemones.add(new Caterpie("Caterpie", 45, 30, TipoPokemon.BICHO, "Normal"));
+        pokemones.add(new Jolteon("Jolteon", 65, 65, TipoPokemon.ELECTRICO, "Normal"));
+        pokemones.add(new Drowzee("Drowzee", 60, 48, TipoPokemon.PSIQUICO, "Normal"));
+        pokemones.add(new Diglett("Diglett", 10, 55, TipoPokemon.TIERRA, "Normal"));
+        pokemones.add(new Articuno("Articuno", 90, 85, TipoPokemon.HIELO, "Normal"));
+        pokemones.add(new Snorlax("Snorlax", 160, 110, TipoPokemon.NORMAL, "Normal"));
+        pokemones.add(new Hitmonlee("Hitmonlee", 50, 120, TipoPokemon.LUCHA, "Normal"));
+        pokemones.add(new Tentacool("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal"));
     }
+
 
     // Método para registrar un nuevo Pokémon
     public static void registrarPokemon(Scanner scanner) {
@@ -53,11 +68,12 @@ public class gestionarPokemon {
         // Mostrar el nombre del Pokémon seleccionado
         System.out.println("Pokémon seleccionado: " + pokemonSeleccionado.getNombre());
     }
-        // Método para obtener el Pokémon seleccionado
+    // Método para obtener el Pokémon seleccionado
+
     public static Pokemon getPokemonSeleccionado() {
         return pokemonSeleccionado;
     }
-  
+
     // Método público void para gestionar Pokémones
     public static void gestionarPokemon(Scanner scanner) {
         int opcionSubMenu;

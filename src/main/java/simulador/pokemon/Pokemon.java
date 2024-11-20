@@ -82,9 +82,6 @@ public abstract class Pokemon {
       }
    
     }
-
-   
-
     // metodo de entrenar
     public void entrenar() {
         this.ataque += 2;

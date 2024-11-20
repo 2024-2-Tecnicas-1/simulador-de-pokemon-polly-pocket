@@ -3,6 +3,7 @@ package simulador;
 import simulador.entrenador.Entrenador;
 import java.util.*;
 import static simulador.gestionarPokemon.gestionarPokemon;
+import static simulador.gestionarPokemon.registrarPokemon;
 import simulador.pokemon.Pokemon;
 
 public class gestionarEntrenadores {
@@ -54,7 +55,7 @@ public class gestionarEntrenadores {
         }
         System.out.print("Elige un entrenador (número): ");
         int opcion = scanner.nextInt() - 1;// Se resta 1 pues as litas comienzan desde 0
-        Entrenador entrenadorSeleccionado = entrenadores.get(opcion);//muestra el entrenador seleccionado en la opcion anterior
+        entrenadorSeleccionado = entrenadores.get(opcion);
         // Mostrar el nombre del entrenador seleccionado
         System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.getNombre());
 
@@ -81,7 +82,7 @@ public class gestionarEntrenadores {
                     break;
                 case 2:
                     // Agregar un Pokémon al equipo
-                    gestionarPokemon(scanner); // Asumimos que gestionarPokemon manejará la opción
+                   gestionarPokemon.registrarPokemon(scanner);
                     break;
                 case 3:
                     // Entrenar un Pokémon

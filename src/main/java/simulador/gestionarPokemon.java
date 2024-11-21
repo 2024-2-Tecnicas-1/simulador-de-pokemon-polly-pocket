@@ -4,6 +4,7 @@ import simulador.pokemon.Pokemon;
 import java.util.*;
 import simulador.entrenador.Entrenador;
 import static simulador.gestionarEntrenadores.gestionarEntrenadores;
+import static simulador.gestionarEntrenadores.verListaPokemones;
 import simulador.pokemon.TipoPokemon;
 
 public class gestionarPokemon {
@@ -28,22 +29,23 @@ public class gestionarPokemon {
         pokemones.add(new Hitmonlee("Hitmonlee", 50, 120, TipoPokemon.LUCHA, "Normal"));
         pokemones.add(new Tentacool("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal"));
     }
-
     // Método para registrar un nuevo Pokémon
+
     public static void registrarPokemon(Scanner scanner) {
+        if (pokemones == null) {
+            pokemones = new ArrayList<>(); // Asegúrate de que pokemones no sea null
+        }
         System.out.println("Selecciona un Pokémon para registrar:");
         for (int i = 0; i < pokemones.size(); i++) {
             System.out.println((i + 1) + ". " + pokemones.get(i).getNombre());
         }
         System.out.print("Elige un Pokémon (número): ");
-        int opcion = scanner.nextInt() - 1;  // Restar 1 ya que las listas comienzan en 0
+        int opcion = scanner.nextInt() - 1;
 
         if (opcion >= 0 && opcion < pokemones.size()) {
             Pokemon pokemonARegistrar = pokemones.get(opcion);  // Obtener el Pokémon seleccionado
 
-            // Verificar si se ha seleccionado un entrenador
             if (entrenadorSeleccionado != null) {
-                // Agregar el Pokémon seleccionado al entrenador
                 entrenadorSeleccionado.agregarPokemonLista(pokemonARegistrar);
                 System.out.println("Pokémon " + pokemonARegistrar.getNombre() + " registrado para el entrenador " + entrenadorSeleccionado.getNombre() + ".");
             } else {
@@ -51,73 +53,32 @@ public class gestionarPokemon {
             }
         } else {
             System.out.println("Opción no válida. Debes elegir un número entre 1 y " + pokemones.size() + ".");
-            gestionarEntrenadores(scanner);
         }
     }
-
-    // Método para ver la lista de Pokémones del entrenador seleccionado
-    public static void verListaPokemones() {
-        if (entrenadorSeleccionado == null) {
-            System.out.println("No se ha seleccionado ningún entrenador.");
-        } else {
-            List<Pokemon> pokemonesEntrenador = entrenadorSeleccionado.getPokemones(); // Obtener los Pokémon del entrenador
-            if (pokemonesEntrenador.size() == 0) {
-                System.out.println(entrenadorSeleccionado.getNombre() + " no tiene Pokémones registrados.");
-            } else {
-                System.out.println("Pokémones de " + entrenadorSeleccionado.getNombre() + ":");
-                for (Pokemon pokemon : pokemonesEntrenador) {
-                    System.out.println(pokemon.getNombre());  // Imprimir el nombre del Pokémon
-                }
-            }
-        }
-    }
-    // Método para seleccionar un Pokémon de la lista
-    public static void seleccionarPokemon(Scanner scanner) {
-        if (pokemones.size() == 0) {
-            System.out.println("No hay Pokémones registrados.");
-            return;
-        }
-        System.out.println("Selecciona un Pokémon:");
-        for (int i = 0; i < pokemones.size(); i++) {
-            System.out.println((i + 1) + ". " + pokemones.get(i).getNombre());
-        }
-        System.out.print("Elige un Pokémon (número de 1 a " + pokemones.size() + "): ");
-        int opcion = scanner.nextInt() - 1;  // Restar 1 ya que las listas comienzan en 0
-        Pokemon pokemonSeleccionado = pokemones.get(opcion);  // Obtener el Pokémon seleccionado
-
-        // Mostrar el nombre del Pokémon seleccionado
-        System.out.println("Pokémon seleccionado: " + pokemonSeleccionado.getNombre());
-    }
-    
     // Método para obtener el Pokémon seleccionado
     public static Pokemon getPokemonSeleccionado() {
         return pokemonSeleccionado;
     }
-
     // Método público void para gestionar Pokémones
     public static void gestionarPokemon(Scanner scanner) {
         int opcionSubMenu;
 
         do {
             System.out.println("\nGestionar Pokémones");
-            System.out.println("1. Registrar nuevo Pokémon");
-            System.out.println("2. Ver lista de Pokémones");
-            System.out.println("3. Seleccionar un Pokémon");
-            System.out.println("4. Volver al menú principal");
+            System.out.println("1. Ver Pokemones Registrados");
+            System.out.println("2. Registrar nuevo Pokemon");
+            System.out.println("3. Volver al menú principal");
             System.out.print("Elige una opción: ");
             opcionSubMenu = scanner.nextInt();
 
             switch (opcionSubMenu) {
                 case 1:
-                    registrarPokemon(scanner);  // Llamar al método para registrar Pokémon
+                    gestionarEntrenadores.verListaPokemones();  // Llamar al método para ver lista de Pokémones
                     break;
                 case 2:
-                    verListaPokemones();  // Llamar al método para ver lista de Pokémones
+                    registrarPokemon(scanner);
                     break;
                 case 3:
-                    seleccionarPokemon(scanner);  // Llamar al método para seleccionar un Pokémon
-                    break;
-                case 4:
                     System.out.println("Volviendo al menú principal.");
                     return;
                 default:

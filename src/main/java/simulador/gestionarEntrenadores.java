@@ -2,6 +2,9 @@ package simulador;
 
 import simulador.entrenador.Entrenador;
 import java.util.*;
+import static simulador.gestionarPokemon.gestionarPokemon;
+import static simulador.gestionarPokemon.registrarPokemon;
+import simulador.pokemon.Pokemon;
 
 public class gestionarEntrenadores {
 
@@ -48,15 +51,77 @@ public class gestionarEntrenadores {
 
         System.out.println("Selecciona un entrenador:");
         for (int i = 0; i < entrenadores.size(); i++) {
-            System.out.println((i + 1) + ". " + entrenadores.get(i).nombre);
+            System.out.println((i + 1) + ". " + entrenadores.get(i).getNombre());
         }
         System.out.print("Elige un entrenador (número): ");
         int opcion = scanner.nextInt() - 1;// Se resta 1 pues as litas comienzan desde 0
-        Entrenador entrenadorSeleccionado = entrenadores.get(opcion);//muestra el entrenador seleccionado en la opcion anterior
+        entrenadorSeleccionado = entrenadores.get(opcion);
         // Mostrar el nombre del entrenador seleccionado
-        System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.nombre);
+        System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.getNombre());
+
+        gestionarEntrenador(scanner);
+    }
+
+    // Método para gestionar un entrenador (submenú con las opciones)
+    public static void gestionarEntrenador(Scanner scanner) {
+        int opcionSubMenu;
+
+        do {
+            System.out.println("\nGestionar " + entrenadorSeleccionado.getNombre());
+            System.out.println("1. Ver equipo de Pokémones");
+            System.out.println("2. Agregar Pokémon al equipo");
+            System.out.println("3. Entrenar Pokémon");
+            System.out.println("4. Volver a gestionar entrenadores");
+            System.out.print("Elige una opción: ");
+            opcionSubMenu = scanner.nextInt();
+
+            switch (opcionSubMenu) {
+                case 1:
+                    // Ver el equipo de Pokémones
+                    entrenadorSeleccionado.mostrarPokemones();
+                    break;
+                case 2:
+                    // Agregar un Pokémon al equipo
+                   gestionarPokemon.registrarPokemon(scanner);
+                    break;
+                case 3:
+                    // Entrenar un Pokémon
+                    entrenarPokemon(scanner);
+                    break;
+                case 4:
+                    System.out.println("Volviendo a gestionar entrenadores.");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (opcionSubMenu != 4);
+    }
+
+    // Método para entrenar un Pokémon
+    private static void entrenarPokemon(Scanner scanner) {
+        if (entrenadorSeleccionado.getPokemones().size() == 0) {
+            System.out.println("El entrenador no tiene Pokémones en su equipo.");
+            return;
+        }
+
+        // Mostrar lista de Pokémones del entrenador
+        System.out.println("Selecciona un Pokémon para entrenar:");
+        for (int i = 0; i < entrenadorSeleccionado.getPokemones().size(); i++) {
+            System.out.println((i + 1) + ". " + entrenadorSeleccionado.getPokemones().get(i).getNombre());
+        }
+
+        System.out.print("Elige un Pokémon (número): ");
+        int opcion = scanner.nextInt() - 1;
+
+        if (opcion >= 0 && opcion < entrenadorSeleccionado.getPokemones().size()) {
+            Pokemon pokemon = entrenadorSeleccionado.getPokemones().get(opcion);
+            entrenadorSeleccionado.entrenarPokemon(pokemon);  // Entrenar al Pokémon
+        } else {
+            System.out.println("Opción no válida.");
+        }
     }
     // Método para obtener el entrenador seleccionado
+
     public static Entrenador getEntrenadorSeleccionado() {
         return entrenadorSeleccionado;
     }
@@ -87,7 +152,7 @@ public class gestionarEntrenadores {
                     break;
                 case 4:
                     System.out.println("Volviendo al menú principal.");
-                    break;
+                    return;
                 default:
                     System.out.println("Opción no válida.");
             }

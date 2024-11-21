@@ -83,6 +83,7 @@ public class gestionarEntrenadores {
                 case 2:
                     // Agregar un Pokémon al equipo
                    gestionarPokemon.registrarPokemon(scanner);
+                
                     break;
                 case 3:
                     // Entrenar un Pokémon

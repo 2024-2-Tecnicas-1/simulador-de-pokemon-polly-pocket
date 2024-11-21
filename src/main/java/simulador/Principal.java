@@ -29,9 +29,6 @@ public class Principal {
             System.out.print("Seleccione una opción: ");
             
             opcion = scan.nextInt();
-            scan.nextLine(); 
-
-            scan.nextInt();
             switch (opcion) {
                 case 1:
                     gestionarEntrenadores gestor = new gestionarEntrenadores();

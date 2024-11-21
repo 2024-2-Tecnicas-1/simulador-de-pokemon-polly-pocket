@@ -20,6 +20,34 @@ public class Principal {
 
         Scanner scan = new Scanner(System.in);
         int opcion;
+
+        //Pokemon(String nombre, int salud, int ataque, TipoPokemon tipo, String estado)
+        Pokemon charmander = new Pokemon("Charmander", 39, 52, TipoPokemon.FUEGO, "Normal") {
+        };
+        Pokemon shellder = new Pokemon("Shellder", 30, 65, TipoPokemon.AGUA, "Normal") {
+        };
+        Pokemon caterpie = new Pokemon("Caterpie", 45, 30, TipoPokemon.BICHO, "Normal") {
+        };
+        Pokemon jolteon = new Pokemon("Jolteon", 65, 65, TipoPokemon.ELECTRICO, "Normal") {
+        };
+        Pokemon drowzee = new Pokemon("Drowzee", 60, 48, TipoPokemon.PSIQUICO, "Normal") {
+        };
+        Pokemon diglett = new Pokemon("Diglett", 10, 55, TipoPokemon.TIERRA, "Normal") {
+        };
+        //Aparece que es (Hielo/Volador) preguntar como hacerlo
+
+        Pokemon articuno = new Pokemon("Articuno", 90, 85, TipoPokemon.HIELO, "Normal") {
+        };
+        Pokemon snorlax = new Pokemon("Snorlax", 160, 110, TipoPokemon.NORMAL, "Normal") {
+        };
+        Pokemon hitmonlee = new Pokemon("Hitmonlee", 50, 120, TipoPokemon.LUCHA, "Normal") {
+        };
+        //Aparece que es (Agua/Veneno) preguntar como hacerlo
+        Pokemon tentacool = new Pokemon("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal") {
+        };
+
+       
+
         do {
             System.out.println("--- Menú ---");
             System.out.println("1. Gestionar Entrenadores");

@@ -63,55 +63,12 @@ public class gestionarEntrenadores {
         gestionarEntrenador(scanner);
     }
 
-    // Método para gestionar un entrenador (submenú con las opciones)
-    public static void gestionarEntrenador(Scanner scanner) {
-        int opcionSubMenu;
-
-        do {
-            System.out.println("\nGestionar " + entrenadorSeleccionado.getNombre());
-            System.out.println("1. Ver equipo de Pokémones");
-            System.out.println("2. Agregar Pokémon al equipo");
-            System.out.println("3. Entrenar Pokémon");
-            System.out.println("4. Volver a gestionar entrenadores");
-            System.out.print("Elige una opción: ");
-            opcionSubMenu = scanner.nextInt();
-
-            switch (opcionSubMenu) {
-                case 1:
-                    // Ver el equipo de Pokémones
-                    entrenadorSeleccionado.mostrarPokemones();
-                    break;
-                case 2:
-
-                    // Agregar un Pokémon al equipo
-                   gestionarPokemon.registrarPokemon(scanner);
-                
-
-                    gestionarPokemon gestionarPokemon = new gestionarPokemon();
-                    gestionarPokemon.registrarPokemon(scanner);
-
-                    break;
-                case 3:
-                    // Entrenar un Pokémon
-                    
-                    entrenarPokemon(scanner);
-                    break;
-                case 4:
-                    System.out.println("Volviendo a gestionar entrenadores.");
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-            }
-        } while (opcionSubMenu != 4);
-    }
-
     // Método para entrenar un Pokémon
     private static void entrenarPokemon(Scanner scanner) {
         if (entrenadorSeleccionado.getPokemones().size() == 0) {
             System.out.println("El entrenador no tiene Pokémones en su equipo.");
             return;
         }
-
         // Mostrar lista de Pokémones del entrenador
         System.out.println("Selecciona un Pokémon para entrenar:");
         for (int i = 0; i < entrenadorSeleccionado.getPokemones().size(); i++) {
@@ -128,8 +85,8 @@ public class gestionarEntrenadores {
             System.out.println("Opción no válida.");
         }
     }
+    
     // Método para obtener el entrenador seleccionado
-
     public static Entrenador getEntrenadorSeleccionado() {
         return entrenadorSeleccionado;
     }
@@ -149,6 +106,42 @@ public class gestionarEntrenadores {
                 }
             }
         }
+    }
+    
+    // Método para gestionar un entrenador (submenú con las opciones)
+    public static void gestionarEntrenador(Scanner scanner) {
+        int opcionSubMenu;
+
+        do {
+            System.out.println("\nGestionar " + entrenadorSeleccionado.getNombre());
+            System.out.println("1. Ver equipo de Pokémones");
+            System.out.println("2. Agregar Pokémon al equipo");
+            System.out.println("3. Entrenar Pokémon");
+            System.out.println("4. Volver a gestionar entrenadores");
+            System.out.print("Elige una opción: ");
+            opcionSubMenu = scanner.nextInt();
+
+            switch (opcionSubMenu) {
+                case 1:
+                    // Ver el equipo de Pokémones
+                    entrenadorSeleccionado.mostrarPokemones();
+                    break;
+                case 2:
+                    gestionarPokemon gestionarPokemon = new gestionarPokemon();
+                    gestionarPokemon.registrarPokemon(scanner);
+                    break;
+                case 3:
+                    // Entrenar un Pokémon
+
+                    entrenarPokemon(scanner);
+                    break;
+                case 4:
+                    System.out.println("Volviendo a gestionar entrenadores.");
+                    break;
+                default:
+                    System.out.println("Opción no válida.");
+            }
+        } while (opcionSubMenu != 4);
     }
 
     // Método para seleccionar un Pokémon de la lista

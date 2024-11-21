@@ -1,4 +1,4 @@
-    package simulador;
+package simulador;
 
 import simulador.entrenador.Entrenador;
 import java.util.*;
@@ -10,7 +10,7 @@ public class gestionarEntrenadores {
     private static List<Entrenador> entrenadores;
     private static Entrenador entrenadorSeleccionado;
     private static List<Pokemon> pokemones;
-    private static Pokemon pokemonSeleccionado;
+    //private static Pokemon pokemonSeleccionado;
 
     //Constructor para iniciar la lista
     public gestionarEntrenadores() {
@@ -57,7 +57,6 @@ public class gestionarEntrenadores {
         System.out.print("Elige un entrenador (número): ");
         int opcion = scanner.nextInt() - 1;
         entrenadorSeleccionado = entrenadores.get(opcion);
-        // Mostrar el nombre del entrenador seleccionado
         System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.getNombre());
 
         gestionarEntrenador(scanner);
@@ -81,14 +80,14 @@ public class gestionarEntrenadores {
         if (opcion >= 0 && opcion < entrenadorSeleccionado.getPokemones().size()) {
             Pokemon pokemon = entrenadorSeleccionado.getPokemones().get(opcion);
             pokemon.entrenar();// Entrenar al Pokémon
-            System.out.println(pokemon.getNombre()  + " ha entrenado y aumentado sus atributos."); 
+            System.out.println(pokemon.getNombre() + " ha entrenado y aumentado sus atributos.");
             System.out.println(pokemon.getAtaque() + " Salud");
             System.out.println(pokemon.getSalud() + " Ataque");
         } else {
             System.out.println("Opción no válida.");
         }
     }
-    
+
     // Método para obtener el entrenador seleccionado
     public static Entrenador getEntrenadorSeleccionado() {
         return entrenadorSeleccionado;
@@ -110,7 +109,7 @@ public class gestionarEntrenadores {
             }
         }
     }
-    
+
     // Método para gestionar un entrenador (submenú con las opciones)
     public static void gestionarEntrenador(Scanner scanner) {
         int opcionSubMenu;
@@ -135,7 +134,6 @@ public class gestionarEntrenadores {
                     break;
                 case 3:
                     // Entrenar un Pokémon
-
                     entrenarPokemon(scanner);
                     break;
                 case 4:

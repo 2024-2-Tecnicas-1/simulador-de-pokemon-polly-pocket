@@ -29,12 +29,14 @@ public class gestionarPokemon {
         pokemones.add(new Hitmonlee("Hitmonlee", 50, 120, TipoPokemon.LUCHA, "Normal"));
         pokemones.add(new Tentacool("Tentacool", 40, 40, TipoPokemon.AGUA, "Normal"));
     }
-    // Método para registrar un nuevo Pokémon
 
+    // Método para registrar un nuevo Pokémon
     public static void registrarPokemon(Scanner scanner) {
         // Verificar que un entrenador ha sido seleccionado
         if (gestionarEntrenadores.getEntrenadorSeleccionado() == null) {
             System.out.println("No has seleccionado un entrenador para registrar el Pokémon.");
+            //gestionarEntrenadores gestionarEntrenadores = new gestionarEntrenadores();
+            //gestionarEntrenadores.registrarEntrenador(scanner);
             return;
         }
 
@@ -80,7 +82,20 @@ public class gestionarPokemon {
                     gestionarEntrenadores.verListaPokemones();  // Llamar al método para ver lista de Pokémones
                     break;
                 case 2:
-                    registrarPokemon(scanner);
+                    // Si no hay entrenadores registrados
+                    if (gestionarEntrenadores.getEntrenadores() == null || gestionarEntrenadores.getEntrenadores().size() == 0) {
+                        System.out.println("No hay entrenadores registrados.");
+                        gestionarEntrenadores gestionarEntrenadores = new gestionarEntrenadores();
+                        gestionarEntrenadores.registrarEntrenador(scanner);  // Registrar un entrenador
+                        // Verificar si se seleccionó un entrenador después de registrarlo
+                        if (gestionarEntrenadores.getEntrenadorSeleccionado() != null) {
+                            // Después de registrar un entrenador, registrar un Pokémon para ese entrenador
+                            registrarPokemon(scanner);
+                        }
+                    } else {
+                        // Si ya hay entrenadores registrados, simplemente registrar un Pokémon
+                        registrarPokemon(scanner);
+                    }
                     break;
                 case 3:
                     System.out.println("Volviendo al menú principal.");

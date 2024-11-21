@@ -86,5 +86,6 @@ public abstract class Pokemon {
     public void entrenar() {
         this.ataque += 2;
         this.salud += 4;
+        
     }
 }

@@ -80,7 +80,8 @@ public class gestionarEntrenadores {
 
         if (opcion >= 0 && opcion < entrenadorSeleccionado.getPokemones().size()) {
             Pokemon pokemon = entrenadorSeleccionado.getPokemones().get(opcion);
-            entrenadorSeleccionado.entrenarPokemon(pokemon);  // Entrenar al Pokémon
+            pokemon.entrenar();// Entrenar al Pokémon
+            System.out.println("El pokemon " + entrenadorSeleccionado.getPokemones().get(opcion) + " ha entrenado :D");
         } else {
             System.out.println("Opción no válida.");
         }

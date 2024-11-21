@@ -33,8 +33,7 @@ public class Entrenador {
     //Agregar un pokemon a la lista
     //void ya que este metodo no devuelve ningun valor
     public void agregarPokemonLista(Pokemon pokemon) {
-        pokemones.add(pokemon);
-        //System.out.println("El pokemon "+pokemon.getnombre()+" ha sido añadido al grupo de: "+nombre);
+        pokemones.add(pokemon);    
     }
 
     // Método para obtener la lista de Pokémones del entrenador

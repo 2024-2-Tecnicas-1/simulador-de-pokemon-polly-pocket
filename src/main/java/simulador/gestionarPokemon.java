@@ -32,33 +32,37 @@ public class gestionarPokemon {
     // Método para registrar un nuevo Pokémon
 
     public static void registrarPokemon(Scanner scanner) {
-        if (pokemones == null) {
-            pokemones = new ArrayList<>(); // Asegúrate de que pokemones no sea null
+        // Verificar que un entrenador ha sido seleccionado
+        if (gestionarEntrenadores.getEntrenadorSeleccionado() == null) {
+            System.out.println("No has seleccionado un entrenador para registrar el Pokémon.");
+            return;
         }
+
         System.out.println("Selecciona un Pokémon para registrar:");
         for (int i = 0; i < pokemones.size(); i++) {
             System.out.println((i + 1) + ". " + pokemones.get(i).getNombre());
         }
         System.out.print("Elige un Pokémon (número): ");
-        int opcion = scanner.nextInt() - 1;
+        int opcionPokemonARegistrar = scanner.nextInt() - 1;
 
-        if (opcion >= 0 && opcion < pokemones.size()) {
-            Pokemon pokemonARegistrar = pokemones.get(opcion);  // Obtener el Pokémon seleccionado
+        if (opcionPokemonARegistrar >= 0 && opcionPokemonARegistrar < pokemones.size()) {
+            // Obtener el Pokémon seleccionado
+            Pokemon pokemonARegistrar = pokemones.get(opcionPokemonARegistrar);
 
-            if (entrenadorSeleccionado != null) {
-                entrenadorSeleccionado.agregarPokemonLista(pokemonARegistrar);
-                System.out.println("Pokémon " + pokemonARegistrar.getNombre() + " registrado para el entrenador " + entrenadorSeleccionado.getNombre() + ".");
-            } else {
-                System.out.println("No has seleccionado un entrenador para registrar el Pokémon.");
-            }
+            // Registrar el Pokémon en el equipo del entrenador seleccionado
+            Entrenador entrenador = gestionarEntrenadores.getEntrenadorSeleccionado();
+            entrenador.agregarPokemonLista(pokemonARegistrar);  // Agregar el Pokémon al equipo del entrenador
+            System.out.println("Pokémon " + pokemonARegistrar.getNombre() + " registrado para el entrenador " + entrenador.getNombre() + ".");
         } else {
             System.out.println("Opción no válida. Debes elegir un número entre 1 y " + pokemones.size() + ".");
         }
     }
     // Método para obtener el Pokémon seleccionado
+
     public static Pokemon getPokemonSeleccionado() {
         return pokemonSeleccionado;
     }
+
     // Método público void para gestionar Pokémones
     public static void gestionarPokemon(Scanner scanner) {
         int opcionSubMenu;

@@ -55,7 +55,7 @@ public class gestionarEntrenadores {
             System.out.println((i + 1) + ". " + entrenadores.get(i).getNombre());
         }
         System.out.print("Elige un entrenador (número): ");
-        int opcion = scanner.nextInt() - 1;// Se resta 1 pues as litas comienzan desde 0
+        int opcion = scanner.nextInt() - 1;
         entrenadorSeleccionado = entrenadores.get(opcion);
         // Mostrar el nombre del entrenador seleccionado
         System.out.println("Entrenador seleccionado: " + entrenadorSeleccionado.getNombre());
@@ -87,6 +87,7 @@ public class gestionarEntrenadores {
                     break;
                 case 3:
                     // Entrenar un Pokémon
+                    
                     entrenarPokemon(scanner);
                     break;
                 case 4:

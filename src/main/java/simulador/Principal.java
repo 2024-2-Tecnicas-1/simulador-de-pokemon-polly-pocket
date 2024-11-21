@@ -29,8 +29,6 @@ public class Principal {
             System.out.print("Seleccione una opción: ");
             
             opcion = scan.nextInt();
-            scan.nextLine(); 
-
             switch (opcion) {
                 case 1:
                     gestionarEntrenadores gestor = new gestionarEntrenadores();
@@ -49,6 +47,7 @@ public class Principal {
                     System.out.println("Saliendo del Juego...");
 
             }
+            
         } while (opcion != 4);
     }
 }

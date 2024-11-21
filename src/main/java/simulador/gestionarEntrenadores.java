@@ -82,8 +82,14 @@ public class gestionarEntrenadores {
                     entrenadorSeleccionado.mostrarPokemones();
                     break;
                 case 2:
+
+                    // Agregar un Pokémon al equipo
+                   gestionarPokemon.registrarPokemon(scanner);
+                
+
                     gestionarPokemon gestionarPokemon = new gestionarPokemon();
                     gestionarPokemon.registrarPokemon(scanner);
+
                     break;
                 case 3:
                     // Entrenar un Pokémon

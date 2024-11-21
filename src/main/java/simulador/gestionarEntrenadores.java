@@ -82,8 +82,8 @@ public class gestionarEntrenadores {
             Pokemon pokemon = entrenadorSeleccionado.getPokemones().get(opcion);
             pokemon.entrenar();// Entrenar al Pokémon
             System.out.println(pokemon.getNombre()  + " ha entrenado y aumentado sus atributos."); 
-            System.out.println(pokemon.getAtaque());
-            System.out.println(pokemon.getSalud());
+            System.out.println(pokemon.getAtaque() + " Salud");
+            System.out.println(pokemon.getSalud() + " Ataque");
         } else {
             System.out.println("Opción no válida.");
         }

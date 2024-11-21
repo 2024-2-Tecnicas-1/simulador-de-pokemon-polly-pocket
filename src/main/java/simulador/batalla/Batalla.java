@@ -70,6 +70,8 @@ public class Batalla {
     // Método para seleccionar Pokémon de cada entrenador
     private void seleccionarPokemonEntrenador1() {
         if (entrenador1 != null) {
+            gestionarEntrenadores gestionarEntrenadores = new gestionarEntrenadores();
+            gestionarEntrenadores.seleccionarPokemon(scan);
             //gestionarPokemon.seleccionarPokemon(scan); // Selecciona un Pokémon
             pokemon1 = gestionarPokemon.getPokemonSeleccionado(); // Obtiene el seleccionado
             if (pokemon1 != null) {
@@ -82,8 +84,8 @@ public class Batalla {
 
     private void seleccionarPokemonEntrenador2() {
         if (entrenador2 != null) {
-            //gestionarPokemon.seleccionarPokemon(scan); // Selecciona un Pokémon
-            pokemon2 = gestionarPokemon.getPokemonSeleccionado(); // Obtiene el seleccionado
+            gestionarEntrenadores gestionarEntrenadores = new gestionarEntrenadores();
+            gestionarEntrenadores.seleccionarPokemon(scan);
             if (pokemon2 != null) {
                 System.out.println("Pokémon seleccionado para Entrenador 2: " + pokemon2.getNombre());
             }

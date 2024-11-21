@@ -147,6 +147,7 @@ public class gestionarEntrenadores {
 
     // Método para seleccionar un Pokémon de la lista
     public static void seleccionarPokemon(Scanner scanner) {
+        pokemones = entrenadorSeleccionado.getPokemones();
         if (pokemones.size() == 0) {
             System.out.println("No hay Pokémones registrados.");
             return;

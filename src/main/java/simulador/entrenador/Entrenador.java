@@ -55,7 +55,7 @@ public class Entrenador {
     public void mostrarPokemones() {
         System.out.println("Pokémones de " + nombre + ":");
         for (Pokemon pokemon : pokemones) {
-            System.out.println(pokemon);
+            System.out.println(pokemon.getNombre());
         }
     }
 

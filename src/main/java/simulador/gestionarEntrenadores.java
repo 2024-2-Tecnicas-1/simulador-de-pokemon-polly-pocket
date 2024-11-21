@@ -1,4 +1,4 @@
-package simulador;
+    package simulador;
 
 import simulador.entrenador.Entrenador;
 import java.util.*;

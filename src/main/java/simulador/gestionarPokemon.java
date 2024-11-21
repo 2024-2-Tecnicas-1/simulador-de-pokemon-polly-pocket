@@ -45,7 +45,7 @@ public class gestionarPokemon {
         System.out.print("Elige un Pokémon (número): ");
         int opcionPokemonARegistrar = scanner.nextInt() - 1;
 
-        if (opcionPokemonARegistrar >= 0 && opcionPokemonARegistrar < pokemones.size()) {
+        if (opcionPokemonARegistrar >= 0 && opcionPokemonARegistrar < 6) {
             // Obtener el Pokémon seleccionado
             Pokemon pokemonARegistrar = pokemones.get(opcionPokemonARegistrar);
 
@@ -54,7 +54,7 @@ public class gestionarPokemon {
             entrenador.agregarPokemonLista(pokemonARegistrar);  // Agregar el Pokémon al equipo del entrenador
             System.out.println("Pokémon " + pokemonARegistrar.getNombre() + " registrado para el entrenador " + entrenador.getNombre() + ".");
         } else {
-            System.out.println("Opción no válida. Debes elegir un número entre 1 y " + pokemones.size() + ".");
+            System.out.println("Opción no válida.");
         }
     }
     // Método para obtener el Pokémon seleccionado

@@ -84,7 +84,8 @@ public abstract class Pokemon {
     }
     // metodo de entrenar
     public void entrenar() {
-        this.ataque += 2;
-        this.salud += 4;
+        this.ataque += this.ataque * 0.07;
+        this.salud += this.salud  * 0.15;
+        
     }
 }

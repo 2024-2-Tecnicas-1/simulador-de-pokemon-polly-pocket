@@ -1,4 +1,4 @@
-package simulador;
+    package simulador;
 
 import simulador.entrenador.Entrenador;
 import java.util.*;
@@ -80,7 +80,10 @@ public class gestionarEntrenadores {
 
         if (opcion >= 0 && opcion < entrenadorSeleccionado.getPokemones().size()) {
             Pokemon pokemon = entrenadorSeleccionado.getPokemones().get(opcion);
-            entrenadorSeleccionado.entrenarPokemon(pokemon);  // Entrenar al Pokémon
+            pokemon.entrenar();// Entrenar al Pokémon
+            System.out.println(pokemon.getNombre()  + " ha entrenado y aumentado sus atributos."); 
+            System.out.println(pokemon.getAtaque() + " Salud");
+            System.out.println(pokemon.getSalud() + " Ataque");
         } else {
             System.out.println("Opción no válida.");
         }

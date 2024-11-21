@@ -29,7 +29,7 @@ public class Principal {
             System.out.print("Seleccione una opción: ");
             
             opcion = scan.nextInt();
-            scan.nextLine(); 
+           
 
             switch (opcion) {
                 case 1:

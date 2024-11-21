@@ -158,9 +158,13 @@ public class Batalla {
                     break;
                 case 2:
                     seleccionarEntrenador2();
+                     gestionarPokemon gestionarPokemon1 = new gestionarPokemon();
+                    gestionarPokemon.registrarPokemon(scan);
                     break;
                 case 3:
                     seleccionarPokemonEntrenador1();
+                     gestionarPokemon gestionarPokemon2 = new gestionarPokemon();
+                    gestionarPokemon.registrarPokemon(scan);
                     break;
                 case 4:
                     seleccionarPokemonEntrenador2();

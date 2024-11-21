@@ -33,14 +33,10 @@ public class Batalla {
         // Verificar que haya entrenadores registrados
         if (gestionarEntrenadores.getEntrenadores().size() == 0) {
             System.out.println("No hay entrenadores registrados. Registra algunos primero.");
-            return;
+            gestionarEntrenadores.registrarEntrenador(scan);
         }
-        // Llamamos a gestionarEntrenadores para seleccionar un entrenador
         gestionarEntrenadores.seleccionarEntrenador(scan);
-
-        // Asignamos el entrenador seleccionado a entrenador1
         entrenador1 = gestionarEntrenadores.getEntrenadorSeleccionado();
-        // Mostramos mensaje 
         if (entrenador1 != null) {
             System.out.println("Entrenador 1 seleccionado: " + entrenador1.getNombre());
         } else {
@@ -55,7 +51,7 @@ public class Batalla {
         // Verificar que haya entrenadores registrados
         if (gestionarEntrenadores.getEntrenadores().size() == 0) {
             System.out.println("No hay entrenadores registrados. Registra algunos primero.");
-            return;
+            gestionarEntrenadores.registrarEntrenador(scan);
         }
         // Llamamos a gestionarEntrenadores para seleccionar un entrenador
         gestionarEntrenadores.seleccionarEntrenador(scan);
@@ -74,7 +70,7 @@ public class Batalla {
     // Método para seleccionar Pokémon de cada entrenador
     private void seleccionarPokemonEntrenador1() {
         if (entrenador1 != null) {
-            gestionarPokemon.seleccionarPokemon(scan); // Selecciona un Pokémon
+            //gestionarPokemon.seleccionarPokemon(scan); // Selecciona un Pokémon
             pokemon1 = gestionarPokemon.getPokemonSeleccionado(); // Obtiene el seleccionado
             if (pokemon1 != null) {
                 System.out.println("Pokémon seleccionado para Entrenador 1: " + pokemon1.getNombre());
@@ -83,10 +79,10 @@ public class Batalla {
             System.out.println("Primero debes seleccionar al entrenador 1.");
         }
     }
-    
+
     private void seleccionarPokemonEntrenador2() {
         if (entrenador2 != null) {
-            gestionarPokemon.seleccionarPokemon(scan); // Selecciona un Pokémon
+            //gestionarPokemon.seleccionarPokemon(scan); // Selecciona un Pokémon
             pokemon2 = gestionarPokemon.getPokemonSeleccionado(); // Obtiene el seleccionado
             if (pokemon2 != null) {
                 System.out.println("Pokémon seleccionado para Entrenador 2: " + pokemon2.getNombre());
@@ -95,7 +91,7 @@ public class Batalla {
             System.out.println("Primero debes seleccionar al entrenador 2.");
         }
     }
-        // Método para comenzar la batalla entre los dos Pokémon seleccionados
+    // Método para comenzar la batalla entre los dos Pokémon seleccionados
 
     private void comenzarBatalla() {
         System.out.println("La batalla ha comenzado entre " + pokemon1.getNombre() + " y " + pokemon2.getNombre());

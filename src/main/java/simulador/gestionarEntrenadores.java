@@ -2,7 +2,6 @@ package simulador;
 
 import simulador.entrenador.Entrenador;
 import java.util.*;
-import static simulador.gestionarPokemon.gestionarPokemon;
 import static simulador.gestionarPokemon.registrarPokemon;
 import simulador.pokemon.Pokemon;
 
@@ -10,6 +9,8 @@ public class gestionarEntrenadores {
 
     private static List<Entrenador> entrenadores;
     private static Entrenador entrenadorSeleccionado;
+    private static List<Pokemon> pokemones;
+    private static Pokemon pokemonSeleccionado;
 
     //Constructor para iniciar la lista
     public gestionarEntrenadores() {
@@ -46,7 +47,7 @@ public class gestionarEntrenadores {
     public static void seleccionarEntrenador(Scanner scanner) {
         if (entrenadores.size() == 0) { //entrenadores.size devueve el numero de elementos que hay en la lista entrenadores
             System.out.println("No hay entrenadores registrados.");
-            return;
+            registrarEntrenador(scanner);
         }
 
         System.out.println("Selecciona un entrenador:");
@@ -81,8 +82,8 @@ public class gestionarEntrenadores {
                     entrenadorSeleccionado.mostrarPokemones();
                     break;
                 case 2:
-                    // Agregar un Pokémon al equipo
-                   gestionarPokemon.registrarPokemon(scanner);
+                    gestionarPokemon gestionarPokemon = new gestionarPokemon();
+                    gestionarPokemon.registrarPokemon(scanner);
                     break;
                 case 3:
                     // Entrenar un Pokémon
@@ -124,6 +125,41 @@ public class gestionarEntrenadores {
 
     public static Entrenador getEntrenadorSeleccionado() {
         return entrenadorSeleccionado;
+    }
+
+    // Método para ver la lista de Pokémones del entrenador seleccionado
+    public static void verListaPokemones() {
+        if (entrenadorSeleccionado == null) {
+            System.out.println("No se ha seleccionado ningún entrenador.");
+        } else {
+            List<Pokemon> pokemonesEntrenador = entrenadorSeleccionado.getPokemones(); // Obtener los Pokémon del entrenador
+            if (pokemonesEntrenador.size() == 0) {
+                System.out.println(entrenadorSeleccionado.getNombre() + " no tiene Pokémones registrados.");
+            } else {
+                System.out.println("Pokémones de " + entrenadorSeleccionado.getNombre() + ":");
+                for (Pokemon pokemon : pokemonesEntrenador) {
+                    System.out.println(pokemon.getNombre());  // Imprimir el nombre del Pokémon
+                }
+            }
+        }
+    }
+
+    // Método para seleccionar un Pokémon de la lista
+    public static void seleccionarPokemon(Scanner scanner) {
+        if (pokemones.size() == 0) {
+            System.out.println("No hay Pokémones registrados.");
+            return;
+        }
+        System.out.println("Selecciona un Pokémon:");
+        for (int i = 0; i < pokemones.size(); i++) {
+            System.out.println((i + 1) + ". " + pokemones.get(i).getNombre());
+        }
+        System.out.print("Elige un Pokémon (número de 1 a " + pokemones.size() + "): ");
+        int opcion = scanner.nextInt() - 1;  // Restar 1 ya que las listas comienzan en 0
+        Pokemon pokemonSeleccionado = pokemones.get(opcion);  // Obtener el Pokémon seleccionado
+
+        // Mostrar el nombre del Pokémon seleccionado
+        System.out.println("Pokémon seleccionado: " + pokemonSeleccionado.getNombre());
     }
 
     //METODO PUBLIC VOID IMPRIME ALGO NO DEVUELVE NINGUN DATO

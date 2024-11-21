@@ -1,25 +1,30 @@
 package simulador.entrenador;
+
 import java.util.ArrayList;
 import java.util.List;
 import simulador.pokemon.Pokemon;
+
 /**
  *
- * @author dfpar
-// * @author Ksrenn
+ * @author dfpar // * @author Ksrenn
  * @author Laufranco
  */
 
 public class Entrenador {
 
-    public String nombre;
+    private String nombre;
     private List<Pokemon> pokemones;
 
     //Constructor
     public Entrenador(String nombre) {
         this.nombre = nombre;
         this.pokemones = new ArrayList<>();
-  }
-    
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     //Obtener nombre del entrenador
     public String getNombre() {
         return nombre;
@@ -28,8 +33,12 @@ public class Entrenador {
     //Agregar un pokemon a la lista
     //void ya que este metodo no devuelve ningun valor
     public void agregarPokemonLista(Pokemon pokemon) {
-        pokemones.add(pokemon);
-        //System.out.println("El pokemon "+pokemon.getnombre()+" ha sido añadido al grupo de: "+nombre);
+        pokemones.add(pokemon);    
+    }
+
+    // Método para obtener la lista de Pokémones del entrenador
+    public List<Pokemon> getPokemones() {
+        return pokemones;
     }
 
     //Metodo entrenar al pokemon
